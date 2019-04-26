@@ -32,7 +32,8 @@ with s:
     data = s.recv(1024)
     contents = data.decode()
     print(contents)
-    f = open("received.txt", 'w+')
-    f.write("dsd")
-    f.close()
+    
+    with open('reversed.txt', 'w') as writer:
+        writer.write(contents)
+        writer.close()
 print('Received', repr(data))
