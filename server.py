@@ -50,4 +50,5 @@ with conn:
         if not data: break
         f = open("tosend.txt", 'r')
         contents = f.read()
+        f.close()
         conn.send(contents.encode())
