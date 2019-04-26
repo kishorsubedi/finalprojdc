@@ -2,7 +2,7 @@
 import socket
 import sys
 
-HOST = 'fd8c:624e:ee6f:0:2017:6e93:f788:fc40'       # Symbolic name meaning all available interfaces
+HOST = None     # Symbolic name meaning all available interfaces
 PORT = 8888             # Arbitrary non-privileged port
 
 COMMAND_BUFFER_SIZE = 256
