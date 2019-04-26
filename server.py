@@ -48,11 +48,14 @@ with conn:
     while True:
         data = conn.recv(1024)
         if not data: break
-        f = open(data.decode(), 'r')
-        if(f == None):
-            conn.send("File not found\n".encode())
-            
-        else:
+        try:
+            f = open(data.decode(), 'r')
             contents = f.read()
             f.close()
             conn.send(contents.encode())
+
+        except FileNotFoundError:
+            conn.send("File Not Found\n".encode())
+            # Keep preset values
+        
+       
