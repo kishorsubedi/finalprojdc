@@ -2,7 +2,7 @@
 import socket
 import sys
 
-HOST = None               # Symbolic name meaning all available interfaces
+HOST = None          # Symbolic name meaning all available interfaces
 PORT = 8888             # Arbitrary non-privileged port
 s = None
 for res in socket.getaddrinfo(HOST, PORT, socket.AF_UNSPEC,
