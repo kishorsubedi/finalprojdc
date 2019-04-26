@@ -33,4 +33,5 @@ with s:
     contents = data.decode()
     f = open("received.txt", "w")
     f.write(contents)
+    f.close()
 print('Received', repr(data))
