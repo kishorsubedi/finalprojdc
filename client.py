@@ -31,10 +31,11 @@ with s:
     s.sendall(b'tosend.txt')
     data = s.recv(1024)
     contents = data.decode()
-    print(contents)
+    #print(contents)
     
     with open('received.txt', 'w') as writer:
-        contentsArray = contents.split("\n")
+        contentsArray = contents.split('\n')
+        print(contentsArray)
         for each in contentsArray:
             writer.write(each)
         writer.close()
