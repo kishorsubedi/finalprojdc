@@ -48,7 +48,7 @@ with conn:
     while True:
         data = conn.recv(1024)
         if not data: break
-        f = open("tosend.txt", 'r')
+        f = open(data.decode(), 'r')
         contents = f.read()
         f.close()
         conn.send(contents.encode())
