@@ -28,7 +28,7 @@ def CreateClientSocket(server_addr, port):
 s = CreateClientSocket(HOST, PORT)
 
 with s:
-    s.sendall(b'tosend.txt')
+    s.sendall(b'tosendd.txt')
     data = s.recv(1024)
     contents = data.decode()
     #print(contents)
