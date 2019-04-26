@@ -34,10 +34,6 @@ with s:
     #print(contents)
     
     with open('received.txt', 'w') as writer:
-        contentsArray = contents.split('\n')
-        print(contentsArray)
-        for each in contentsArray:
-            print(each)
-            writer.write(each)
-        writer.close()
+       writer.write(contents)
+       writer.close()
 print('Received', repr(data))
