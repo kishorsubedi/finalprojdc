@@ -39,5 +39,5 @@ with s:
     f = open('received.txt', 'r')
     c = f.read()
     print(c)
-    c.close()
+    f.close()
 #print('Received', repr(data))
