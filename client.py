@@ -32,7 +32,7 @@ with s:
     data = s.recv(1024)
     contents = data.decode()
     print(contents)
-    f = open("received.txt", "w")
+    f = open("received.txt", 'w')
     f.write(contents)
     f.close()
 print('Received', repr(data))
