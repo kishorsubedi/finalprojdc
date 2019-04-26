@@ -20,6 +20,7 @@ def GetIPv6Addr(addr, port):
 
 def CreateClientSocket(server_addr, port):
     sockaddr = GetIPv6Addr(server_addr, port)
+    print(sockaddr)
     client = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
     client.connect(sockaddr)
     return client
