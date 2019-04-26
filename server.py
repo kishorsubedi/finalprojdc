@@ -49,6 +49,10 @@ with conn:
         data = conn.recv(1024)
         if not data: break
         f = open(data.decode(), 'r')
-        contents = f.read()
-        f.close()
-        conn.send(contents.encode())
+        if(f == None):
+            conn.send("File not found\n".encode())
+            
+        else:
+            contents = f.read()
+            f.close()
+            conn.send(contents.encode())
