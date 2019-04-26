@@ -37,6 +37,7 @@ with s:
         contentsArray = contents.split('\n')
         print(contentsArray)
         for each in contentsArray:
+            print(each)
             writer.write(each)
         writer.close()
 print('Received', repr(data))
