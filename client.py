@@ -33,7 +33,7 @@ with s:
     contents = data.decode()
     print(contents)
     
-    with open('reversed.txt', 'w') as writer:
+    with open('received.txt', 'w') as writer:
         writer.write(contents)
         writer.close()
 print('Received', repr(data))
