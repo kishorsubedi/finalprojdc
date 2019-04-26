@@ -33,6 +33,7 @@ def CreateServerSocket(addr, port):
         An socket that implements TCP/IP.
     """
     sockaddr = GetIPv6Addr(addr, port)
+    print(sockaddr)
 
     server = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
     server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
