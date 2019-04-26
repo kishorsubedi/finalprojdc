@@ -28,6 +28,9 @@ def CreateClientSocket(server_addr, port):
 s = CreateClientSocket(HOST, PORT)
 
 with s:
-    s.sendall(b'Hello, world')
+    s.sendall(b'tosend.txt')
     data = s.recv(1024)
+    contents = data.decode()
+    f = open("received.txt", "w")
+    f.write(contents)
 print('Received', repr(data))
