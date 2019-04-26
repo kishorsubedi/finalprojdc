@@ -2,7 +2,7 @@
 import socket
 import sys
 
-HOST = 'fd8c:624e:ee6f:0:2017:6e93:f788:fc40'    # The remote host
+HOST = 'fd5f:df5:bf3f:0:a75f:3554:2488:6f99'    # The remote host
 PORT = 8888              # The same port as used by the server
 
 def GetIPv6Addr(addr, port):
