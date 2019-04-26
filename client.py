@@ -36,4 +36,8 @@ with s:
     with open('received.txt', 'w') as writer:
        writer.write(contents)
        writer.close()
-print('Received', repr(data))
+    f = open('received.txt', 'r')
+    c = f.read()
+    print(c)
+    c.close()
+#print('Received', repr(data))
