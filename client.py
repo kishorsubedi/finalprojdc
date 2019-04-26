@@ -31,6 +31,7 @@ with s:
     s.sendall(b'tosend.txt')
     data = s.recv(1024)
     contents = data.decode()
+    print(contents)
     f = open("received.txt", "w")
     f.write(contents)
     f.close()
