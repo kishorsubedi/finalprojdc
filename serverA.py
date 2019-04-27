@@ -41,6 +41,39 @@ import library
 HOST = 'fd5f:df5:bf3f:0:a75f:3554:2488:6f99'     # Symbolic name meaning all available interfaces
 PORT = 8888             # Arbitrary non-privileged port
 
+def GetIPv6Addr(addr, port):
+    # Try to detect whether IPv6 is supported at the present system and
+    # fetch the IPv6 address.
+    if not socket.has_ipv6:
+        raise Exception("the local machine has no IPv6 support enabled")
+
+    addrs = socket.getaddrinfo(addr, port, socket.AF_INET6, 0, socket.SOL_TCP)
+
+    if len(addrs) == 0:
+        raise Exception("there is no IPv6 address configured for the address")
+
+    return addrs[0][-1]
+
+
+def CreateServerSocket(addr, port):
+    """Creates a socket that listens on a specified port.
+
+    Args:
+        addr: ip address or "localhost" which will be used as a listening
+                socket for the server.
+        port: int from 0 to 2^16. Low numbered ports have defined purposes. Almost
+                all predefined ports represent insecure protocols that have died out.
+    Returns:
+        An socket that implements TCP/IP.
+    """
+    sockaddr = GetIPv6Addr(addr, port)
+    print(sockaddr)
+
+    server = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
+    server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    server.bind(sockaddr)
+    server.listen()
+    return server
 
 def accept_wrapper(sock):
     conn, addr = sock.accept()  # Should be ready to read
@@ -69,10 +102,7 @@ def service_connection(key, mask):
 
 sel = selectors.DefaultSelector()
 # ...
-lsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-lsock.bind((HOST, PORT))
-lsock.listen()
-print('listening on', (HOST, PORT))
+lsock = CreateServerSocket(HOST, PORT)
 lsock.setblocking(False)
 sel.register(lsock, selectors.EVENT_READ, data=None)
 
