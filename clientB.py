@@ -28,15 +28,15 @@ def CreateClientSocket(server_addr, port):
 s = CreateClientSocket(HOST, PORT)
 
 with s:
-    s.sendall(b'tosend.txt')
+    s.sendall(b'resourceA.txt')
     data = s.recv(1024)
     contents = data.decode()
     #print(contents)
     
-    with open('received.txt', 'w') as writer:
+    with open('receivedB.txt', 'w') as writer:
        writer.write(contents)
        writer.close()
-    f = open('received.txt', 'r')
+    f = open('receivedB.txt', 'r')
     c = f.read()
     print(c)
     f.close()
