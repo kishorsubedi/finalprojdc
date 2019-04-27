@@ -17,23 +17,20 @@ def CreateClientSocket(server_addr, port):
 s = CreateClientSocket(HOST, PORT)
 
 with s:
-    s.sendall(b'resourceAA.txt')
+    s.sendall(b'resourceA.txt')
     data = s.recv(1024)
     contents = data.decode()
     
     if(contents == "File Not Found\n"):
-        print("Kishor")
-    '''
-    else:
-    #print(contents)
+        print("Client requested invalid filename")
     
+    else:
         with open('receivedB.txt', 'w') as writer:
-        writer.write(contents)
-        writer.close()
-        f = open('receivedB.txt', 'r')
-        c = f.read()
-        print(c)
-        f.close()
+            writer.write(contents)
+            writer.close()
+            f = open('receivedB.txt', 'r')
+            c = f.read()
+            print(c)
+            f.close()
     
 #print('Received', repr(data))
-'''

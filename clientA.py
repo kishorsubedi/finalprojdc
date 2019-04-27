@@ -20,15 +20,17 @@ with s:
     s.sendall(b'resourceB.txt')
     data = s.recv(1024)
     contents = data.decode()
-    #print(contents)
     
+    if(contents == "File Not Found\n"):
+        print("Client requested invalid filename")
     
-    with open('receivedA.txt', 'w') as writer:
-       writer.write(contents)
-       writer.close()
-    f = open('receivedA.txt', 'r')
-    c = f.read()
-    print(c)
-    f.close()
+    else:
+        with open('receivedA.txt', 'w') as writer:
+            writer.write(contents)
+            writer.close()
+            f = open('receivedA.txt', 'r')
+            c = f.read()
+            print(c)
+            f.close()
  
 #print('Received', repr(data))
