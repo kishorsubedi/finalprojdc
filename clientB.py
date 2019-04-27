@@ -21,7 +21,7 @@ with s:
     data = s.recv(1024)
     contents = data.decode()
     
-    if(contents == "File Not Found"):
+    if(contents == "File Not Found\n"):
         print("Kishor")
     '''
     else:
