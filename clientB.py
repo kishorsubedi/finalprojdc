@@ -31,8 +31,8 @@ with s:
     s.sendall(b'resourceA.txt')
     data = s.recv(1024)
     contents = data.decode()
-    #print(contents)
-    
+    print(contents)
+    '''
     with open('receivedB.txt', 'w') as writer:
        writer.write(contents)
        writer.close()
@@ -40,4 +40,5 @@ with s:
     c = f.read()
     print(c)
     f.close()
+    '''
 #print('Received', repr(data))

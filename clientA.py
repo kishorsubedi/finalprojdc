@@ -10,7 +10,7 @@ PORT = 7777              # The same port as used by the server
 def CreateClientSocket(server_addr, port):
     sockaddr = library.GetIPv6Addr(server_addr, port)
     print(sockaddr)
-    client = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
+    client = socket.socket(socket.AF_INET6, socket.SOCK_STREAM) #socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
     client.connect(sockaddr)
     return client
 
@@ -22,6 +22,7 @@ with s:
     contents = data.decode()
     #print(contents)
     
+    
     with open('receivedA.txt', 'w') as writer:
        writer.write(contents)
        writer.close()
@@ -29,4 +30,5 @@ with s:
     c = f.read()
     print(c)
     f.close()
+ 
 #print('Received', repr(data))
